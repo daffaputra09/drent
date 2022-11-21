@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css?family=Open Sans');
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans';
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: #eee9e6;
+}
+.judul {
+  margin-left: 35px;
+  margin-top: 40px;
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.container {
+  position: absolute;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  height: 600px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.left {
+  width: 500px;
+  height: 600px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.right {
+  background-color: #ffaa44;
+  width: 500px;
+  height: 600px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.right img {
+  max-height: 400px;
+  margin-top: 90px;
+  margin-left: 50px;
+}
+.isian {
+  margin-left: 35px;
+  margin-top: 10px;
+}
+form label {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 3px;
+  margin-top: 20px;
+}
+
+.isian input {
+  width: 400px;
+  height: 20px;
+  margin: 2px;
+  margin-top: 5px;
+  border: none;
+  outline: none;
+  padding: 8px;
+  border-radius: 5px;
+  border: 2px solid #ffaa44;
+  transition: 0.5s;
+}
+.isian input:focus {
+  box-shadow: 0 0 20px #ffce93;
+  transition: 0.3s;
+}
+
+input[type='submit'] {
+  position: absolute;
+  width: 120px;
+  height: 45px;
+  border: none;
+  background: #ffaa44;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  transition: 0.5s;
+  cursor: pointer;
+  margin-left: 336px;
+  margin-top: -45px;
+}
+input[type='submit']:hover {
+  background: #ff8c00;
+  transition: 0.5s;
+}
+.opsi {
+  margin-top: 40px;
+  margin-left: 35px;
+}
+.btn-link a {
+  margin-left: 35px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #ffaa44;
+  transition: 0.5s;
+}
+.btn-link :hover {
+  color: #ff8c00;
+  transition: 0.5s;
+}
+.pass-icon {
+  top: 337px;
+  left: 414px;
+  width: 26px;
+  position: absolute;
+  cursor: pointer;
+  
+}
+.pass-icon1 {
+  top: 432px;
+  left: 414px;
+  width: 26px;
+  position: absolute;
+  cursor: pointer;
+}
