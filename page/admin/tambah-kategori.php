@@ -45,21 +45,19 @@ $data=mysqli_fetch_array($hasil);
         <div class="admin">
           <div class="admin-form">
             <h3>Tambah Kategori</h2>
+            <form action="proses-tambah-kategori.php" method="post" enctype="multipart/form-data">
             <table>
                 <tr>
                     <td>Kategori</td>
-                    <td><input type="text"></td>
+                    <td><input type="text" name="kategori"></td>
                 </tr>
                 <tr>
                     <td>Gambar</td>
-                    <td><input type="file" id="file" accept="image/*" hidden /> <button class="select-image">Upload Gambar</button></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><div class="img-area" name="kirim" data-img=""></div></td>
+                    <td><input type="file"  name="foto1" required></td>
                 </tr>
             </table>
             <input type="submit" value="Tambah">
+            </div>
           </div>
       </div>
     </div>

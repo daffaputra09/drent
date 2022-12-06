@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../css/style.css" />
     <title>Detail</title>
+    <style>
+      .wish p {
+  font-weight: 500;
+  position: absolute;
+  margin-top: -25px;
+  margin-left: 50px;
+  color: white;
+}
+    </style>
   </head>
   <body oncontextmenu="return false">
     <!-- Ini navbar yang ngerjakannya 2 jam -->
@@ -67,7 +76,7 @@
         <div class="btn-detail">
           <a href="sewa.php"><input type="submit" value="Sewa" /></a>
           <div class="wish">
-            <img src="img/wish.svg" class="wish-icon" id="wish-icon" onclick="wish()" alt="" />
+            <img src="img/wish-fill.svg" class="wish-icon" id="wish-icon"  alt="" /> <p>Wishlist</p>
           </div>
         </div>
       </div>

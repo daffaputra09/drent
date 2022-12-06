@@ -61,62 +61,29 @@ $data=mysqli_fetch_array($hasil);
             </div>
             <div class="tbl-isi">
               <table>
+              <?php
+                $query="SELECT * FROM tb_kategori" ; 
+                $hasil=mysqli_query($koneksi,$query); 
+                $no=1;
+                while ($data=mysqli_fetch_array($hasil)) {
+              ?>
                 <tr>
-                  <td class="nomor">1</td>
-                  <td class="tengah">Kamera</td>
+                  <td class="nomor"><?php echo $no++;?></td>
+                  <td class="tengah"><?php echo $data['kategori'];?></td>
                   <td class="action-kategori">
-                    <a href="edit-kategori.php">
+                    <a href="edit-kategori.php?id_kategori=<?php echo $data['id_kategori'];?>">
                       <img src="../../img/edit.svg" alt="" />
                     </a>
                   </td>
                   <td class="action-kategori">
-                    <a href="delete.php">
+                    <a href="delete-kategori.php?id_kategori=<?php echo $data['id_kategori'];?>"onclick="return confirm('Menghapus <?php echo $data['kategori'];?>?')">
                       <img src="../../img/trash.svg" alt="" />
                     </a>
                   </td>
                 </tr>
-                <tr>
-                  <td class="nomor">2</td>
-                  <td class="tengah">Lensa</td>
-                  <td class="action-kategori">
-                    <a href="edit-kategori.php">
-                      <img src="../../img/edit.svg" alt="" />
-                    </a>
-                  </td>
-                  <td class="action-kategori">
-                    <a href="delete.php">
-                      <img src="../../img/trash.svg" alt="" />
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                    <td class="nomor">3</td>
-                    <td class="tengah">Lighting</td>
-                    <td class="action-kategori">
-                      <a href="edit-kategori.php">
-                        <img src="../../img/edit.svg" alt="" />
-                      </a>
-                    </td>
-                    <td class="action-kategori">
-                      <a href="delete.php">
-                        <img src="../../img/trash.svg" alt="" />
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="nomor">4</td>
-                    <td class="tengah">Baterai</td>
-                    <td class="action-kategori">
-                      <a href="edit-kategori.php">
-                        <img src="../../img/edit.svg" alt="" />
-                      </a>
-                    </td>
-                    <td class="action-kategori">
-                      <a href="delete.php">
-                        <img src="../../img/trash.svg" alt="" />
-                      </a>
-                    </td>
-                  </tr>
+                <?php
+                }
+                ?>
               </table>
             </div>
           </div>

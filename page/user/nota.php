@@ -39,42 +39,42 @@ if ($_SESSION['level']=="admin" || $_SESSION['level']==""){
       <h1>Nota</h1>
       <a href="detail-nota.php">
         <div class="nota">
-          <h2>#19 Daffa Putra Prasetya</h2>
+          <h2>#19 Letta Dwikyagata</h2>
           <h3>2 Hari</h3>
           <div class="line"></div>
         </div>
       </a>
       <a href="">
         <div class="nota">
-          <h2>#17 Daffa Putra Prasetya</h2>
+          <h2>#17 Letta Dwikyagata</h2>
           <h3>1 Hari</h3>
           <div class="line"></div>
         </div>
       </a>
       <a href="">
         <div class="nota">
-          <h2>#12 Daffa Putra Prasetya</h2>
+          <h2>#12 Letta Dwikyagata</h2>
           <h3>1 Hari</h3>
           <div class="line"></div>
         </div>
       </a>
       <a href="">
         <div class="nota">
-          <h2>#7 Daffa Putra Prasetya</h2>
+          <h2>#7 Letta Dwikyagata</h2>
           <h3>2 Hari</h3>
           <div class="line"></div>
         </div>
       </a>
       <a href="">
         <div class="nota">
-          <h2>#3 Daffa Putra Prasetya</h2>
+          <h2>#3 Letta Dwikyagata</h2>
           <h3>3 Hari</h3>
           <div class="line"></div>
         </div>
       </a>
       <a href="">
         <div class="nota">
-          <h2>#2 Daffa Putra Prasetya</h2>
+          <h2>#2 Letta Dwikyagata</h2>
           <h3>1 Hari</h3>
           <div class="line"></div>
         </div>

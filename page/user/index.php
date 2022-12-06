@@ -47,71 +47,21 @@ $data=mysqli_fetch_array($hasil);
           <h2>Kategori</h2>
         </div>
         <ul class="card-list">
+        <?php
+                $query="SELECT * FROM tb_kategori  WHERE kategori != 'paket'" ; 
+                $hasil=mysqli_query($koneksi,$query); 
+                $hasil=mysqli_query($koneksi,$query); 
+                while ($data=mysqli_fetch_array($hasil)) {
+              ?>
           <li class="card">
-            <a class="card-image" href="kamera.php">
-              <img src="../../img/kamera.png" alt="" />
+            <a class="card-image" href="kategori.php?kategori=<?php echo $data['kategori'];?>">
+              <img src="../../images_upload/<?php echo $data['gambar_kategori'];?>" alt="" />
             </a>
-            <a class="card-description" href="kamera.php">
-              <p>Kamera</p>
+            <a class="card-description" href="kategori.php?kategori=<?php echo $data['kategori'];?>">
+              <p><?php echo $data['kategori'];?></p>
             </a>
           </li>
-          <li class="card">
-            <a class="card-image" href="#">
-              <img src="../../img/lensa.png" alt="" />
-            </a>
-            <a class="card-description" href="#">
-              <p>Lensa</p>
-            </a>
-          </li>
-          <li class="card">
-            <a class="card-image" href="#">
-              <img src="../../img/lighting.png" alt="" />
-            </a>
-            <a class="card-description" href="#">
-              <p>Lighting</p>
-            </a>
-          </li>
-          <li class="card">
-            <a class="card-image" href="#">
-              <img src="../../img/baterai.png" alt="" />
-            </a>
-            <a class="card-description" href="#">
-              <p>Baterai</p>
-            </a>
-          </li>
-
-          <li class="card">
-            <a class="card-image" href="#">
-              <img src="../../img/peralatan.png" alt="" />
-            </a>
-            <a class="card-description" href="#">
-              <p>Peralatan</p>
-            </a>
-          </li>
-          <li class="card">
-            <a class="card-image" href="#">
-              <img src="../../img/perekam.png" alt="" />
-            </a>
-            <a class="card-description" href="#">
-              <p>Perekam</p>
-            </a>
-          </li>
-          <li class="card">
-            <a class="card-image" href="#">
-              <img src="../../img/stabilizer.png" alt="" />
-            </a>
-            <a class="card-description" href="#">
-              <p>Stabilizer</p>
-            </a>
-          </li>
-          <li class="card">
-            <a class="card-image" href="#">
-              <img src="../../img/adapter.webp" alt="" />
-            </a>
-            <a class="card-description" href="#">
-              <p>Adapter</p>
-            </a>
-          </li>
+          <?php } ?>
         </ul>
       </div>
     </div>

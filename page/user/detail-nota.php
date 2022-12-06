@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../css/style.css" />
-    <title>Profil</title>
+    <title>Detail Nota</title>
   </head>
   <body oncontextmenu="return false">
     <!-- Ini navbar yang ngerjakannya 2 jam -->
@@ -30,7 +30,7 @@
     </div>
     <!-- entek e navbar-->
     <div class="con-denota">
-      <h1>#19 Daffa Putra Prasetya</h1>
+      <h1>#19 Letta Dwikyagata</h1>
       <h2>2 Hari</h2>
       <div class="denota">
         <table class="tb1">

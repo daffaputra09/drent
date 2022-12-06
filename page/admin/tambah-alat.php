@@ -16,6 +16,11 @@ $data=mysqli_fetch_array($hasil);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../css/style.css" />  
     <title>Tambah Alat</title>
+    <style>
+      .admin-form input[type='submit'] {
+      margin-bottom: 40px;
+      }
+    </style>
   </head>
   <body oncontextmenu="return false">
     <!--sidebar-->
@@ -28,7 +33,7 @@ $data=mysqli_fetch_array($hasil);
               <td>
                 <a href="logout.php"><img src="../../img/logout.svg" alt="" /></a>
               </td>
-              <td><?php echo $data['nama_user'];?></td>
+              <td>Daffa Putra Prasetya</td>
             </tr>
           </table>
         </div>
@@ -45,63 +50,64 @@ $data=mysqli_fetch_array($hasil);
         <div class="admin">
           <div class="admin-form">
             <h3>Tambah Alat</h2>
-            <form action="" method="post">
+            <form action="proses-tambah-alat.php" method="post" enctype="multipart/form-data">
             <table>
                 <tr>
                     <td class="kiri-form" >Nama</td>
-                    <td colspan="2"><input type="text" name="nama_alat"></td>
+                    <td colspan="2"><input type="text" name="nama_alat" required></td>
                 </tr>
                 <tr>
                     <td>Harga</td>
-                    <td colspan="2"><input type="text" name="harga_alat"></td>
+                    <td colspan="2"><input type="number" name="harga_alat"  required></td>
                 </tr>
                 <tr>
                   <td>Stok Alat</td>
-                  <td colspan="2"><input type="text" name="stok_alat"></td>
+                  <td colspan="2"><input type="number" name="stok_alat" required></td>
                 </tr>
                 <tr>
                     <td>Kategori</td>
                     <td><div class="custom-select" style="width: 270px">
-                      <select name="kategori">
+                      <select name="kategori" required>
                         <option value="">Pilih Kategori</option>
-                        <option value="kamera">Kamera</option>
-                        <option value="lensa">Lensa</option>
-                        <option value="lighting">Lighting</option>
-                        <option value="baterai">Baterai</option>
-                        <option value="peralatan">Peralatan</option>
-                        <option value="perekam">Perekam</option>
-                        <option value="stabilizer">Stabilizer</option>
-                        <option value="adapter">Adapter</option>
+                        <?php
+                         $query="SELECT * FROM tb_kategori" ; 
+                         $hasil=mysqli_query($koneksi,$query);
+                         $jum=mysqli_num_rows($hasil); 
+                         while ($data=mysqli_fetch_array($hasil)) {
+                       ?>
+                        <option value="<?php echo $data['kategori'];?>"><?php echo $data['kategori'];?></option>
+                        <?php } ?>
+
                       </select>
                     </div>
                 </tr>
                 <tr>
-                  <td>Gambar</td>
-                  <td><input type="file" id="file" name="gambar_alat" accept="image/*" hidden /> <button class="select-image">Upload Gambar</button></td>
+                  <td>Gambar 1</td>
+                  <td><input type="file"  name="foto1" required> </td>
               </tr>
               <tr>
-                  <td></td>
-                  <td><div class="img-area" data-img=""></div></td>
+                  <td>Gambar 2</td>
+                  <td><input type="file"  name="foto2"> </td>
               </tr>
                 <tr>
                   <td>Spesifikasi</td>
-                  <td class="ket"><input type="text" name="ket1"></td>
-                  <td class="spek-input"><input type="text" name="spek1"></td>
+                  <td class="ket"><input type="text" name="ket1" required></td>
+                  <td class="spek-input"><input type="text" name="spek1" required></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td class="ket"><input type="text" name="ket2"></td>
-                  <td class="spek-input"><input type="text" name="spek2"></td>
+                  <td class="ket"><input type="text" name="ket2" required></td>
+                  <td class="spek-input"><input type="text" name="spek2" required></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td class="ket"><input type="text" name="ket3"></td>
-                  <td class="spek-input"><input type="text" name="spek3"></td>
+                  <td class="ket"><input type="text" name="ket3" required></td>
+                  <td class="spek-input"><input type="text" name="spek3" required></td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td class="ket"><input type="text" name="ket4"></td>
-                  <td class="spek-input"><input type="text" name="spek4"></td>
+                  <td class="ket"><input type="text" name="ket4" required></td>
+                  <td class="spek-input"><input type="text" name="spek4" required></td>
                 </tr>
                 <tr>
                   <td></td>
@@ -119,42 +125,12 @@ $data=mysqli_fetch_array($hasil);
                   <td class="spek-input"><input type="text" name="spek7"></td>
                 </tr>
             </table>
-            <input type="submit" value="Tambah" name="submit">
+            <input type="submit" value="Tambah">
           </div>
           </form>
       </div>
     </div>
-    <script type="text/javascript" src="../../js/admin.js"></script>
+    <script type="text/javascript" src="../../js/coba.js"></script>
   </body>
 </html>
-<?php
-include "../../koneksi.php";
-@$id_alat = $_POST['id_alat'];
-@$nama_alat = $_POST['nama_alat'];
-@$harga_alat = $_POST['harga_alat'];
-@$stok_alat = $_POST['stok_alat'];
-@$kategori = $_POST['kategori'];
-@$gambar_alat = $_POST['gambar_alat'];
-@$ket1 = $_POST['ket1'];
-@$ket2 = $_POST['ket2'];
-@$ket3 = $_POST['ket3'];
-@$ket4 = $_POST['ket4'];
-@$ket5 = $_POST['ket5'];
-@$ket6 = $_POST['ket6'];
-@$ket7 = $_POST['ket7'];
-@$spek1 = $_POST['spek1'];
-@$spek2 = $_POST['spek2'];
-@$spek3 = $_POST['spek3'];
-@$spek4 = $_POST['spek4'];
-@$spek5 = $_POST['spek5'];
-@$spek6 = $_POST['spek6'];
-@$spek7 = $_POST['spek7'];
-@$submit = $_POST['submit'];
-if($submit) {
-    $query_insert="INSERT INTO tb_alat (id_alat, nama_alat, harga_alat, stok_alat, kategori, gambar_alat, ket1, ket2, ket3, ket4, ket5, ket6, ket7, spek1, spek2, spek3, spek4, spek5, spek6, spek7)
-     VALUES ('','$nama_alat','$harga_alat','$stok_alat','$kategori',''$gambar_alat,'$ket1','$ket2','$ket3','$ket4','$ket5','$ket6','$ket7',
-    '$spek1','$spek2','$spek3','$spek4','$spek5','$spek6','$spek7');";
-    $hasil = mysqli_query($koneksi_db, $query_insert) or die ("ERROR INSERT DATA");
-}
 
-?>

@@ -1,12 +1,6 @@
 <?php
-session_start();
-if ($_SESSION['level']=="admin" || $_SESSION['level']==""){
-    echo "<script>alert('Akses Ditolak');window.location='../../index.php';</script>";
-}   
 include "../../koneksi.php";
-$query="SELECT * FROM tb_user WHERE username='$_SESSION[username]'";
-$hasil=mysqli_query($koneksi, $query);
-$data=mysqli_fetch_array($hasil);
+
 ?>
 
 <html lang="en">
@@ -31,7 +25,7 @@ $data=mysqli_fetch_array($hasil);
     <div class="nav">
       <img src="../../img/logo.png" class="logo" />
       <ul>
-        <li><a href="index.php">Home</a></li>
+        <li><a href="../../index.php">Home</a></li>
         <li><a href="wishlist.php">Wishlist</a></li>
         <li><a href="nota.php">Nota</a></li>
         <li><a href="profil.php">Profil</a></li>
@@ -41,10 +35,15 @@ $data=mysqli_fetch_array($hasil);
       </div>
       <img class="search-icon" src="../../img/search.svg" alt="" />
       <div class="tombol">
-      <div class="btn-logout">
-          <a href="logout.php">
-          <input type="button" value="Keluar" />
-        </a>
+        <div class="btn-daftar">
+          <a href="../daftar.php">
+            <input type="button" value="Daftar" />
+          </a>
+        </div>
+        <div class="btn-login">
+          <a href="../login.php">
+            <input type="button" value="Masuk" />
+          </a>
         </div>
       </div>
     </div>
@@ -90,7 +89,7 @@ $data=mysqli_fetch_array($hasil);
           <div class="wish" name="submit">
             <img src="img/wish-fill.svg" class="wish-icon" id="wish-icon" alt="" /> <p>Wishlist</p>
           </div>
-          <p>Tersedia 5 Barang</p>
+          <p>Tersedia <?php echo $data['stok_alat'];?> Barang</p>
         </div>
       </div>
     </div>
@@ -106,26 +105,26 @@ $data=mysqli_fetch_array($hasil);
           <td class="isi"><?php echo $data['spek2'];?></td>
         </tr>
         <tr>
-          <td>Max ISO</td>
-          <td>Autofokus</td>
+          <td><?php echo $data['ket3'];?></td>
+          <td><?php echo $data['ket4'];?></td>
         </tr>
         <tr>
-          <td class="isi">25600</td>
-          <td class="isi">179 phase detect</td>
+          <td class="isi"><?php echo $data['spek3'];?></td>
+          <td class="isi"><?php echo $data['spek4'];?></td>
         </tr>
         <tr>
-          <td>LCD</td>
-          <td>Berat</td>
+          <td><?php echo $data['ket5'];?></td>
+          <td><?php echo $data['ket6'];?></td>
         </tr>
         <tr>
-          <td class="isi">3 inch, 921.000 titik</td>
-          <td class="isi">285 Gram</td>
+          <td class="isi"><?php echo $data['spek5'];?></td>
+          <td class="isi"><?php echo $data['spek6'];?></td>
         </tr>
         <tr>
-          <td>Shutter Speed</td>
+        <td><?php echo $data['ket7'];?></td>
         </tr>
         <tr>
-          <td class="isi">30’’ sampai 1/4000 detik</td>
+        <td class="isi"><?php echo $data['spek7'];?></td>
         </tr>
       </table>
     </div>

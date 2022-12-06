@@ -40,7 +40,7 @@ $data=mysqli_fetch_array($hasil);
     </div>
     <!-- entek e navbar-->
     <div class="user">
-        <img src="../../img/user-letta.jpg" alt="">
+        <img src="../../img/user-letta2.jpg" alt="">
         <p><?php echo $data['nama_user'];?></p>
     </div>
     <div class="con-profil">

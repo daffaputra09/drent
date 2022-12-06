@@ -41,25 +41,34 @@ $data=mysqli_fetch_array($hasil);
         </ul>
       </div>
       <!--entek e sidebar-->
+      <?php
+      $id_kategori=$_GET['id_kategori'];
+      $query="SELECT * FROM tb_kategori WHERE id_kategori='$id_kategori'";
+      $hasil=mysqli_query($koneksi, $query);
+      $data=mysqli_fetch_array($hasil);
+      ?>
       <div class="konten-admin">
         <div class="admin">
           <div class="admin-form">
             <h3>Edit Kategori</h2>
+            <form action="proses-edit-kategori.php" method="post" enctype="multipart/form-data">
             <table>
+           
                 <tr>
                     <td>Kategori</td>
-                    <td><input type="text" value="Kamera"></td>
+                    <td><input type="text" name="kategori" value="<?php echo $data['kategori'];?>" required></td>
                 </tr>
                 <tr>
                     <td>Gambar</td>
-                    <td><input type="file" id="file" accept="image/*" hidden /> <button class="select-image">Upload Gambar</button></td>
+                    <td><input type="file"  name="foto1" value="<?php echo $data['gambar_kategori'];?>" required></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td><div class="img-area" name="kirim" data-img=""></div></td>
+                    <td><input type="text" name="id_kategori" value="<?php echo $data['id_kategori'];?>" hidden></td>
                 </tr>
             </table>
-            <input type="submit" value="Tambah">
+            <input type="submit" value="Simpan">
+            </div>
           </div>
       </div>
     </div>

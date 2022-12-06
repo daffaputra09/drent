@@ -8,23 +8,13 @@ $query="SELECT * FROM tb_user WHERE username='$_SESSION[username]'";
 $hasil=mysqli_query($koneksi, $query);
 $data=mysqli_fetch_array($hasil);
 ?>
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../css/style.css" />
-    <title>Detail</title>
-    <style>
-      .wish p {
-  font-weight: 500;
-  position: absolute;
-  margin-top: -25px;
-  margin-left: 50px;
-  color: white;
-}
-    </style>
+    <title>Kategori</title>
   </head>
   <body oncontextmenu="return false">
     <!-- Ini navbar yang ngerjakannya 2 jam -->
@@ -48,86 +38,30 @@ $data=mysqli_fetch_array($hasil);
         </div>
       </div>
     </div>
-    <!-- entek e navbar-->
     <?php
-        $id_alat=$_GET['id_alat'];
-        $query="SELECT * FROM tb_alat WHERE id_alat='$id_alat'";
-        $hasil=mysqli_query($koneksi,$query);
-        $data=mysqli_fetch_array($hasil);
-        ?>
-    <div class="con-detail">
-      <img src="../../images_upload/<?php echo $data['gambar_alat1'];?>" alt="" />
-      <div class="info">
-        <h1><?php echo $data['nama_alat'];?></h1>
-        <h2><?php echo 'Rp. ' . number_format($data['harga_alat'], 0, ",", ".") . ' / hari';?></h2>
-        <div class="jaminan">
-          <h3>Pilihan Jaminan Sewa</h3>
-          <table>
-            <tr>
-              <td>E KTP</td>
-              <td>Ijazah</td>
-              <td>BPKB</td>
-            </tr>
-            <tr>
-              <td>KK</td>
-              <td>Akta Kelahiran</td>
-              <td>STNK</td>
-            </tr>
-            <tr>
-              <td>KTM</td>
-              <td>Paspor</td>
-              <td>NPWP</td>
-            </tr>
-            <tr>
-              <td>Kartu Pelajar</td>
-              <td>Buku Nikah</td>
-              <td>BPJS</td>
-            </tr>
-          </table>
-        </div>
-        <div class="btn-detail">
-          <a href="sewa.php"><input type="submit" value="Sewa" /></a>
-          <div class="wish" name="submit">
-            <img src="img/wish-fill.svg" class="wish-icon" id="wish-icon" alt="" /> <p>Wishlist</p>
+     $query="SELECT * FROM tb_alat" ; 
+     $hasil=mysqli_query($koneksi,$query);
+     $jum=mysqli_num_rows($hasil); 
+    ?>
+    <!-- entek e navbar-->
+    <div class="konten">
+      <h2><?php echo "Menampilkan  ".$jum . " Alat"; ?></h2>
+      <div class="konten-alat">
+      <?php
+                
+                while ($data=mysqli_fetch_array($hasil)) {
+              ?>
+        <a href="detail-alat.php?id_alat=<?php echo $data['id_alat'];?>">
+          <div class="alat">
+            <img src="../../images_upload/<?php echo $data['gambar_alat1'];?>" alt="" />
+            <h2><?php echo $data['nama_alat'];?></h2> 
+            <p><?php echo 'Rp. ' . number_format($data['harga_alat'], 0, ",", "." ) . ' / hari';?></p>
           </div>
-          <p>Tersedia 5 Barang</p>
-        </div>
+        </a>
+        <?php
+                }
+                ?>
       </div>
-    </div>
-    <div class="spek">
-      <h1>Spesifikasi</h1>
-      <table>
-        <tr>
-          <td><?php echo $data['ket1'];?></td>
-          <td><?php echo $data['ket2'];?></td>
-        </tr>
-        <tr>
-          <td class="isi"><?php echo $data['spek1'];?></td>
-          <td class="isi"><?php echo $data['spek2'];?></td>
-        </tr>
-        <tr>
-          <td>Max ISO</td>
-          <td>Autofokus</td>
-        </tr>
-        <tr>
-          <td class="isi">25600</td>
-          <td class="isi">179 phase detect</td>
-        </tr>
-        <tr>
-          <td>LCD</td>
-          <td>Berat</td>
-        </tr>
-        <tr>
-          <td class="isi">3 inch, 921.000 titik</td>
-          <td class="isi">285 Gram</td>
-        </tr>
-        <tr>
-          <td>Shutter Speed</td>
-        </tr>
-        <tr>
-          <td class="isi">30’’ sampai 1/4000 detik</td>
-        </tr>
-      </table>
     </div>
     <!-- footer bosss -->
     <footer class="footer">

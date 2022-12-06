@@ -39,17 +39,23 @@ $data=mysqli_fetch_array($hasil);
           <li><a class="strong" href="user.php">User</a></li>
         </ul>
       </div>
-      <!--entek e sidebar-->
-      <div class="konten-admin">
-        <div class="admin">
-            <div class="con-profil">
-        <h2>Informasi Profil</h2>
-        <?php
+      <?php
         $username=$_GET['username'];
         $query="SELECT * FROM tb_user WHERE username='$username'";
         $hasil=mysqli_query($koneksi,$query);
         $data=mysqli_fetch_array($hasil);
         ?>
+      <!--entek e sidebar-->
+      <div class="konten-admin">
+        <div class="admin">
+        <div class="user-admin">
+        <img src="../../img/user-letta2.jpg" alt="">
+        <p><?php echo $data['nama_user'];?></p>
+    </div>
+            <div class="con-profil">
+        <h2>Informasi Profil</h2>
+
+        
         <table>
             <tr>
                 <td class="label">Username</td>

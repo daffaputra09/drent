@@ -49,7 +49,7 @@ $data=mysqli_fetch_array($hasil);
               ?>
         <a href="detail-alat.php?id_alat=<?php echo $data['id_alat'];?>">
           <div class="alat">
-            <img src="<?php echo $data['gambar_alat'];?>" alt="" />
+            <img src="<?php echo $data['gambar_alat1'];?>" alt="" />
             <h2>Sony Alpha A6000</h2>
             <p>Rp. 110.000 / hari</p>
           </div>
