@@ -87,7 +87,7 @@ $data=mysqli_fetch_array($hasil);
               </tr>
               <tr>
                   <td>Gambar 2</td>
-                  <td><input type="file"  name="foto2"> </td>
+                  <td><input type="file"  name="foto2"></td>
               </tr>
                 <tr>
                   <td>Spesifikasi</td>
