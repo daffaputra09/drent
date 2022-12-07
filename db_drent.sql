@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Des 2022 pada 08.18
+-- Waktu pembuatan: 07 Des 2022 pada 08.20
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 8.1.2
 
@@ -77,6 +77,93 @@ INSERT INTO `tb_alat` (`id_alat`, `nama_alat`, `harga_alat`, `stok_alat`, `kateg
 (54, 'Canon 5Diii', 325000, 10, 'Kamera', '5Diii.png', '', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'),
 (55, 'Sony HXR NX100P', 400000, 5, 'Kamera', 'NX100.png', '', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'ww');
 
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_kategori`
+--
+
+CREATE TABLE `tb_kategori` (
+  `id_kategori` int(11) NOT NULL,
+  `kategori` varchar(20) NOT NULL,
+  `gambar_kategori` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_kategori`
+--
+
+INSERT INTO `tb_kategori` (`id_kategori`, `kategori`, `gambar_kategori`) VALUES
+(14, 'Kamera', 'kamera.png'),
+(15, 'Lensa', 'lensa.png'),
+(16, 'Lighting', 'lighting.png'),
+(17, 'Baterai', 'baterai.png'),
+(18, 'Peralatan', 'peralatan.png'),
+(19, 'Perekam', 'perekam.png'),
+(20, 'Stabilizer', 'stabilizer.png'),
+(22, 'Paket', 'basic.png'),
+(23, 'Adapter', 'adapter.webp');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_nota`
+--
+
+CREATE TABLE `tb_nota` (
+  `id_nota` int(11) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `nama_alat` varchar(50) NOT NULL,
+  `harga_alat` int(10) NOT NULL,
+  `jumlah_sewa` int(10) NOT NULL,
+  `jangka_sewa` int(10) NOT NULL,
+  `penerimaan` varchar(50) NOT NULL,
+  `alamat` text NOT NULL,
+  `subtotal` int(11) NOT NULL,
+  `grandtotal` int(11) NOT NULL,
+  `status` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_user`
+--
+
+CREATE TABLE `tb_user` (
+  `username` varchar(30) NOT NULL,
+  `password` varchar(32) NOT NULL,
+  `nama_user` varchar(100) NOT NULL,
+  `email_user` varchar(50) NOT NULL,
+  `nomor_user` varchar(20) NOT NULL,
+  `alamat_user` text NOT NULL,
+  `gambar_user` text NOT NULL,
+  `level` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_user`
+--
+
+INSERT INTO `tb_user` (`username`, `password`, `nama_user`, `email_user`, `nomor_user`, `alamat_user`, `gambar_user`, `level`) VALUES
+('daffa09', 'd65c81cf756151229c67d150eac28fd6', 'Daffa Putra Prasetya', '', '', '', '', 'admin'),
+('letta18', '030c5f71c737e8c6af920ec09f82126d', 'Letta Dwikyagata', 'letta@gmail.com', '08123456', 'malang', '', 'user');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_wishlist`
+--
+
+CREATE TABLE `tb_wishlist` (
+  `id_wishlist` int(11) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `nama_alat` varchar(50) NOT NULL,
+  `harga_alat` int(10) NOT NULL,
+  `stok_alat` int(10) NOT NULL,
+  `gambar_alat1` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
@@ -88,6 +175,30 @@ ALTER TABLE `tb_alat`
   ADD PRIMARY KEY (`id_alat`);
 
 --
+-- Indeks untuk tabel `tb_kategori`
+--
+ALTER TABLE `tb_kategori`
+  ADD PRIMARY KEY (`id_kategori`);
+
+--
+-- Indeks untuk tabel `tb_nota`
+--
+ALTER TABLE `tb_nota`
+  ADD PRIMARY KEY (`id_nota`);
+
+--
+-- Indeks untuk tabel `tb_user`
+--
+ALTER TABLE `tb_user`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indeks untuk tabel `tb_wishlist`
+--
+ALTER TABLE `tb_wishlist`
+  ADD PRIMARY KEY (`id_wishlist`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -96,6 +207,24 @@ ALTER TABLE `tb_alat`
 --
 ALTER TABLE `tb_alat`
   MODIFY `id_alat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_kategori`
+--
+ALTER TABLE `tb_kategori`
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_nota`
+--
+ALTER TABLE `tb_nota`
+  MODIFY `id_nota` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_wishlist`
+--
+ALTER TABLE `tb_wishlist`
+  MODIFY `id_wishlist` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
