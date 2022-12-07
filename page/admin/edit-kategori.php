@@ -52,8 +52,7 @@ $data=mysqli_fetch_array($hasil);
           <div class="admin-form">
             <h3>Edit Kategori</h2>
             <form action="proses-edit-kategori.php" method="post" enctype="multipart/form-data">
-            <table>
-           
+            <table>11
                 <tr>
                     <td>Kategori</td>
                     <td><input type="text" name="kategori" value="<?php echo $data['kategori'];?>" required></td>
